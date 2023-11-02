@@ -1,0 +1,98 @@
+body{
+    background-color: #444;
+}
+.input{
+    background-color: #fff;
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px;
+    margin-left: 100px;
+    margin-right: 300px;
+    cursor: pointer;
+}
+.input img{
+    width: 150px;
+}
+.inputt input{
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+}
+.image img{
+    width: 250px;
+    height: auto;
+    margin-left: 70px;
+    position: relative;
+}
+
+.overlay-image{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+.image h1{
+    text-shadow: 0 10px 4px rgba(0, 0, 0, 0.301);
+    font-size: 50px;
+    font-style: italic;
+    color: #fff;
+}
+.dropdown{
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin-right: 600px;
+    border-radius: 10px;
+    color: #000000;
+}
+.inputttt{
+    background-color: #eee;
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px;
+    margin-left: 100px;
+    margin-right: 300px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+.inputtt input{
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+}
+.password button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px;
+    margin-left: 350px;
+    margin-top: 5px;
+}
+.submit input{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+}
+.submit input :hover{
+    background-color: blue;
+    color: #eee;
+}
+        /* @media screen and (max-width: 770px){
+            #footer-left,#footer-right{
+                flex-basis: 100%;
+                font-size: 14px;
+            }
+            #footer-img{
+                top:25%;
+            }
+        } */
+
+.password{
+    margin-top: 20px;
+    margin-right: 20px;
+}

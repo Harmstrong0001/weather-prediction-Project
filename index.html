@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Prediction</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+</head>
+<body>
+  <header>
+    <!-- <button class="menu-button" onclick="toggleMenu()">|||</button> -->
+    <div id="sideNav">
+      <nav id="menu">
+        <ul>
+          <b>
+            <!-- <li><a href="#">BLOG</a></li> -->
+          <li><a href="#big-box">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#service">SERVICES</a></li>
+          <li><a href="index2.html">SIGN UP</a></li>
+          <li><a href="#">MEET US</a></li>
+          </b>
+        </ul>
+      </nav>
+    </div>
+    <div id="manuBtn">
+      <ion-icon id="menuIcon" name="menu"></ion-icon>
+    </div>
+  </header>
+  <h2>Weather Prediction</h2>
+  <div id="big-box">
+    <div class="design">
+      <div class="double">
+        <h1 class="design-one"><span style="color: rgb(50, 50, 248);">Weather in your pocket directly </span>from your phone in few clicks!!</h1>
+      </div>
+      <div class="image-logo">
+        <img src="asset/weather 4.jpg" alt="">
+      </div>
+    </div>
+    <div class="banner-text">
+      <div id="banner-link">
+        <a href="#"><span></span>FEATURES</a>
+        <a href="#"><span></span>LEARN MORE</a>
+      </div>
+      <div class="logo">
+        <img src="asset/logo-removebg-preview.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Weather Prediction</h1>
+    <form id="weatherForm">
+      <input type="text" id="locationInput" placeholder="Enter location (e.g., city name)">
+      <button type="submit">Get Weather</button>
+    </form>
+    <div id="weatherInfo">
+      <h2 id="location"></h2>
+      <p id="temperature"></p>
+      <p id="weather-condition"></p>
+    </div>
+  </div>
+  <section id="service">
+    <div id="title-text">
+        <p>SERVICES</p>
+        <h1>We Provide Better</h1>
+    </div>
+    <div id="service-box">
+        <div id="single-service">
+            <img src="asset/weather 3.png" alt="">     
+            <div id="overlay"></div>
+            <div id="service-desc">
+                <h3>Informations</h3>
+                <hr>
+                <p>This is where you get your latest news on <b>current affairs, business, sport and entertainment gist</b>.
+                    You also get feedbacks from different source
+                </p>
+            </div>
+
+        </div>
+        <div id="single-service">
+            <img src="asset/weather 1.png" alt="">
+            <div id="overlay"></div>
+            <div id="service-desc">
+                <h3>Blog</h3>
+                <hr>
+                <p>Discover free-blogging platform that offers many features to...
+                </p>
+            </div>
+        </div>
+        <div>
+          
+        </div>
+        <div id="single-service">
+            <img src="asset/weather 2.png" alt="">
+            <div id="overlay"></div>
+            <div id="service-desc">
+                <h3>Entertainment</h3>
+                <hr>
+                <p>Discover short funny videos and trailers of your favourite new movies here 
+                </p>
+            </div> 
+        </div>
+        <div id="single-service">
+            <img src="asset/weather 6.jpeg" alt="">
+            <div id="overlay"></div>
+            <div id="service-desc">
+                <h3>Data Saving</h3>
+                <hr>
+                <p>Enjoy exploring on the website with lesser data consumption.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- <script src="style.js"></script> -->
+  <script>
+    const apiKey = '15be1e7e9f6f7d89cf6734e9a202f363';
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+const weatherForm = document.getElementById('weatherForm');
+const locationInput = document.getElementById('locationInput');
+const weatherInfo = document.getElementById('weatherInfo');
+const locationElement = document.getElementById('location');
+const temperatureElement = document.getElementById('temperature');
+const weatherConditionElement = document.getElementById('weather-condition');
+
+weatherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const location = locationInput.value.trim();
+  if (location === '') return;
+
+  getWeatherData(location);
+});
+
+function getWeatherData(location) {
+  const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      displayWeatherData(data);
+    })
+    .catch((error) => {
+      console.error('Error fetching weather data:', error);
+    });
+}
+
+function displayWeatherData(data) {
+  const locationName = data.name;
+  const temperature = data.main.temp;
+  const weatherCondition = data.weather[0].description;
+
+  locationElement.textContent = `Location: ${locationName}`;
+  temperatureElement.textContent = `Temperature: ${temperature} °C`;
+  weatherConditionElement.textContent = `Weather Condition: ${weatherCondition}`;
+
+  weatherInfo.style.display = 'block';
+}
+
+let menuBtn 
+let sideNav
+let menu
+menuBtn = document.getElementById("menuBtn")
+sideNav = document.getElementById("sideNav")
+menu = document.getElementById("menuIcon")
+sideNav.style.display="none"
+menuIcon.onclick = () => {
+    
+    if(sideNav.style.display == "none"){
+        sideNav.style.display = "block"
+    }
+    else{
+        sideNav.style.display = "none"
+    }
+}
+// function toggleMenu() {
+//   const menu = document.getElementById("menu");
+//   menu.style.display = (menu.style.display === "block") ? "none" : "block";
+// }
+  </script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]', {
+speed: 1000
+});
+</script>
+</body>
+</html>
+
+

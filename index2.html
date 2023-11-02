@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style2.css">
+    <title>sign up</title>
+</head>
+<body>
+    <div class="image">
+        <img class="overlay-image" src="asset/sunny.png" alt="">
+    </div>
+    <header>
+        <div class="input">
+            <div class="inputt">
+                <h3 class="ayo">User name</h3>
+                <input type="text" placeholder="Adebayo" required>
+            </div>
+            <div class="inputtt">
+                <h3 class="mide">Enter email address</h3>
+                <input type="text" placeholder="example@gmail.com" required>
+                <div class="password">
+                    <h3>Password</h3>
+                    <label for="password"></label>
+                    <input type="password" id="password" name="password" />
+                    <br>
+                    <button onclick="checkPassword()">Submit</button>
+                    <p id="error-msg" style="color: red; display: none;">Incorrect password.</p>
+                </div>
+        </div>
+    </header> 
+    <a href="index.html">Back</a>
+</body>
+<script>
+    function checkPassword() {
+    var passwordInput = document.getElementById("password");
+    var errorMessage = document.getElementById("error-msg");
+   
+    // Replace "your_correct_password" with the actual correct password
+    var correctPassword = "ayomide";
+    var enteredPassword = passwordInput.value;
+   
+    if (enteredPassword === correctPassword) {
+        errorMessage.style.display = "none"; // Hide error message if correct
+        passwordInput.style.border = "1px solid #ccc"; // Reset border to default
+    } else {
+        errorMessage.style.display = "block"; // Show error message if incorrect
+        passwordInput.style.border = "2px solid red"; // Set border to red for incorrect input
+    }
+}
+</script>
+</html>
